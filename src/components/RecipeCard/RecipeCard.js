@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   AiOutlineClockCircle,
@@ -17,64 +18,89 @@ import {
   Actions,
 } from './RecipeCard.styled';
 import { RecipeDifficulty } from 'constants';
+import { ImageModal } from 'components/ImageModal/ImageModal';
 
-export const RecipeCard = ({
-  item: { image, name, time, servings, calories, difficulty },
-}) => {
-  return (
-    <Container>
-      <Image src={image} alt={name} />
-      <Meta>
-        <Name>{name}</Name>
+export class RecipeCard extends Component {
+  state = {
+    selectedImg: null,
+  };
 
-        <RecipeInfo>
-          <InfoBlock>
-            <AiOutlineClockCircle size="24" />
-            <span>{time} min</span>
-          </InfoBlock>
-          <InfoBlock>
-            <AiOutlinePieChart size="24" />
-            <span>{servings} servings</span>
-          </InfoBlock>
-          <InfoBlock>
-            <AiOutlineBarChart size="24" />
-            <span>{calories} calories</span>
-          </InfoBlock>
-        </RecipeInfo>
+  setSelectedImg = () => {
+    this.setState({ selectedImg: this.props.item.image });
+  };
 
-        <BadgeList>
-          <Badge
-            active={difficulty === RecipeDifficulty.easy}
-            type={RecipeDifficulty.easy}
-          >
-            Easy
-          </Badge>
-          <Badge
-            active={difficulty === RecipeDifficulty.medium}
-            type={RecipeDifficulty.medium}
-          >
-            Medium
-          </Badge>
-          <Badge
-            active={difficulty === RecipeDifficulty.hard}
-            type={RecipeDifficulty.hard}
-          >
-            Hard
-          </Badge>
-        </BadgeList>
+  closeModal = () => {
+    this.setState({ selectedImg: null });
+  };
 
-        <Actions>
-          <button aria-label="Delete">
-            <HiTrash />
-          </button>
-          <button aria-label="Zoom">
-            <HiZoomIn />
-          </button>
-        </Actions>
-      </Meta>
-    </Container>
-  );
-};
+  render() {
+    const { selectedImg } = this.state;
+    const {
+      item: { id, image, name, time, servings, calories, difficulty },
+      onDelete,
+    } = this.props;
+
+    return (
+      <Container>
+        <Image src={image} alt={name} />
+        <Meta>
+          <Name>{name}</Name>
+
+          <RecipeInfo>
+            <InfoBlock>
+              <AiOutlineClockCircle size="24" />
+              <span>{time} min</span>
+            </InfoBlock>
+            <InfoBlock>
+              <AiOutlinePieChart size="24" />
+              <span>{servings} servings</span>
+            </InfoBlock>
+            <InfoBlock>
+              <AiOutlineBarChart size="24" />
+              <span>{calories} calories</span>
+            </InfoBlock>
+          </RecipeInfo>
+
+          <BadgeList>
+            <Badge
+              active={difficulty === RecipeDifficulty.easy}
+              type={RecipeDifficulty.easy}
+            >
+              Easy
+            </Badge>
+            <Badge
+              active={difficulty === RecipeDifficulty.medium}
+              type={RecipeDifficulty.medium}
+            >
+              Medium
+            </Badge>
+            <Badge
+              active={difficulty === RecipeDifficulty.hard}
+              type={RecipeDifficulty.hard}
+            >
+              Hard
+            </Badge>
+          </BadgeList>
+
+          <Actions>
+            <button aria-label="Delete" onClick={() => onDelete(id)}>
+              <HiTrash />
+            </button>
+            <button aria-label="Zoom" onClick={this.setSelectedImg}>
+              <HiZoomIn />
+            </button>
+          </Actions>
+        </Meta>
+
+        <ImageModal
+          isOpen={selectedImg !== null}
+          onClose={this.closeModal}
+          image={selectedImg}
+        />
+      </Container>
+    );
+  }
+}
 
 RecipeCard.propTypes = {
   item: PropTypes.shape({
