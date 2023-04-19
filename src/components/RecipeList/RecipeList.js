@@ -2,7 +2,7 @@ import { RecipeCard } from '../RecipeCard/RecipeCard';
 import PropTypes from 'prop-types';
 import { List, ListItem } from './RecipeList.styled';
 
-export const RecipeList = ({ items, onDelete, onSelect }) => {
+export const RecipeList = ({ items, onDelete }) => {
   return (
     <List>
       {items.map(item => (
@@ -17,7 +17,7 @@ export const RecipeList = ({ items, onDelete, onSelect }) => {
 RecipeList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
     })
   ).isRequired,
 };

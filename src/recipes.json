@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Smoked salmon burger",
     "time": 20,
     "servings": 6,
@@ -9,7 +9,7 @@
     "difficulty": "easy"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Tomatoes With Creamy Feta",
     "time": 15,
     "servings": 3,
@@ -18,7 +18,7 @@
     "difficulty": "medium"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Spicy potato salad",
     "time": 30,
     "servings": 2,
@@ -27,7 +27,7 @@
     "difficulty": "medium"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Chicken Biryani",
     "time": 40,
     "servings": 4,
