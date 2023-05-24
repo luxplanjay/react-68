@@ -1,11 +1,10 @@
-import { createStore, combineReducers } from 'redux';
-import { devToolsEnhancer } from '@redux-devtools/extension';
-import { accountReducer } from './account/accountReducer';
+import { configureStore } from '@reduxjs/toolkit';
+import { accountReducer } from './account/accountSlice';
+import { localeReducer } from './locale/localeSlice';
 
-const rootReducer = combineReducers({
-  account: accountReducer,
+export const store = configureStore({
+  reducer: {
+    account: accountReducer,
+    locale: localeReducer,
+  },
 });
-
-const enhancer = devToolsEnhancer();
-
-export const store = createStore(rootReducer, enhancer);

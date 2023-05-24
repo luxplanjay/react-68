@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deposit, withdraw } from 'redux/account/accountActions';
+import { deposit, withdraw } from 'redux/account/accountSlice';
 
 export const Controls = () => {
   const dispatch = useDispatch();

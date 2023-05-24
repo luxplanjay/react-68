@@ -1,7 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useBalance } from 'redux/account/hooks';
 
 export const Balance = () => {
-  const currentBalance = useSelector(state => state.account.balance);
+  const currentBalance = useBalance();
 
   return (
     <div>
