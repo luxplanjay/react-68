@@ -10,6 +10,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.6",
+    "clsx": "^1.2.1",
     "formik": "^2.2.9",
     "modern-normalize": "^1.1.0",
     "nanoid": "^4.0.2",

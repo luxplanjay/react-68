@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { accountReducer } from './account/accountSlice';
-import { localeReducer } from './locale/localeSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import { tasksReducer } from "./tasksSlice";
+import { filtersReducer } from "./filtersSlice";
 
 export const store = configureStore({
   reducer: {
-    account: accountReducer,
-    locale: localeReducer,
+    tasks: tasksReducer,
+    filters: filtersReducer,
   },
 });
