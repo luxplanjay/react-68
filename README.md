@@ -9,6 +9,7 @@ https://roadmap.sh/
 - https://www.youtube.com/@UlbiTV/featured
 - https://www.youtube.com/@YauhenKavalchuk/featured
 - https://www.youtube.com/@ArchakovBlog/videos
+- https://www.youtube.com/@freecodecamp
 - https://www.youtube.com/@ByteByteGo/featured
 
 ## TypeScript
